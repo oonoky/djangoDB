@@ -5,8 +5,6 @@
     <div class="left-ads-display col-lg-9">
         <div class="row">
             {% for movie in movie_list %}
-            <a href="{{ movie.get_absolute_url }}"
-                                   class="editContent">
                 <div class="col-md-4 product-men">
                     <div class="product-shoe-info editContent text-center mt-lg-4">
                         <div class="men-thumb-item">
@@ -14,7 +12,10 @@
                         </div>
                         <div class="item-info-product">
                             <h4 class="">
+                                <a href="{{ movie.get_absolute_url }}"
+                                   class="editContent">
                                     {{ movie.title }}
+                                </a>
                             </h4>
 
                             <div class="product_price">
@@ -42,7 +43,6 @@
                         </div>
                     </div>
                 </div>
-            </a>
             {% endfor %}
         </div>
         <!--<div class="grid-img-right mt-4 text-right bg bg1" >
