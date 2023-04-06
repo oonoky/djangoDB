@@ -68,7 +68,7 @@ class MovieAdmin(admin.ModelAdmin):
             "fields": (("actors", "directors", "genres", "category"),)
         }),
         (None, {
-            "fields": (("budget", "fees_in_usa", "fess_in_world"),)
+            "fields": (("budget", "fees_in_usa", "fees_in_world"),)
         }),
         ("Options", {
             "fields": (("url", "draft"),)
@@ -133,7 +133,7 @@ class ActorAdmin(admin.ModelAdmin):
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
     """Рейтинг"""
-    list_display = ("star", "ip")
+    list_display = ("star", "movie", "ip")
 
 
 @admin.register(MovieShots)
