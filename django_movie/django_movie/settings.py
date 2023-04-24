@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
     'movies',
+    'contact',
 
     'snowpenguin.django.recaptcha3',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'django_movie.urls'
@@ -88,6 +94,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -120,6 +130,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = '/'
+
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -215,3 +229,5 @@ RECAPTCHA_PUBLIC_KEY = "6LfEHGolAAAAAF5HOtTymExQTEB0L0KpvVrylzXc"
 RECAPTCHA_PRIVATE_KEY = "6LfEHGolAAAAANIC_008ZIXVgQ-iMkUoRJx6yhK6"
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+SITE_ID = 1
